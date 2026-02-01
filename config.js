@@ -1,0 +1,20 @@
+const CONFIG = {
+  titleWeb: "Confession",
+  introTitle: 'To you... the one so precious to me',
+  introDesc: `The earth is full of wonders,
+Yet somehow you keep losing your way,
+Straying into my lonely heart,
+Behind the word love lies fondness`,
+  btnIntro: '^^HiHi^^',
+  title: 'Perhaps… I was already in love with you, from the very first moment our eyes met 🥰',
+  desc: 'Perhaps I was enchanted, the very moment your smile appeared',
+  btnYes: 'Love it so much <33',
+  btnNo: 'Nope :3',
+  question: 'Out of more than 7 billion souls on this planet, why did your heart choose mine? <3',
+  btnReply: 'For you <3',
+  reply: 'Whether you love me or not… just love me anyway! <333333333333333333333333..... aab neeche wala button bhi press krlo 😒                        ',
+  mess: 'I knew it already 🥰. Love you lots and lots 😘😘',
+  messDesc: 'I\'ll come pick you up at 7 tonight — lets go out together, alright?',
+  btnAccept: 'Alrightyy <3',
+  messLink: 'https://youtu.be/kw4tT7SCmaY?t=8'
+};

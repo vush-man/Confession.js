@@ -1,0 +1,378 @@
+/* ============ Cute + Clean Theme ============ */
+:root{
+  --bg-blur: 14px;
+  --radius: 18px;
+  --space: 16px;
+
+  /* Enhanced vibrant palette */
+  --accent-1: #6dd5ff;   /* bright sky */
+  --accent-2: #5dddd8;   /* vibrant mint */
+  --accent-3: #ff6b9d;   /* vivid blush */
+  --accent-4: #f8faff;   /* bright white */
+  --accent-5: #ffc857;   /* golden yellow */
+  --accent-6: #a78bfa;   /* soft purple */
+
+  /* Text */
+  --text-strong: #1a1f2b;
+  --text-soft: #5a6b82;
+
+  /* Effects */
+  --shadow: 0 15px 40px rgba(24,39,75,0.18);
+  --shadow-lg: 0 25px 60px rgba(24,39,75,0.25);
+  --glow: 0 0 25px rgba(109,213,255,0.4);
+  --glass: rgba(255,255,255,0.55);
+  --backdrop: blur(var(--bg-blur)) saturate(130%);
+}
+
+*{ 
+  box-sizing: border-box; 
+}
+
+body{
+  transition: all 0.3s ease;
+  background: #fff;
+  min-height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.content{
+  position: relative;
+  z-index: 3;
+  max-width: 960px;
+  margin: 60px auto 0;
+  padding: calc(var(--space) * 3);
+  animation: fadeInDown 0.8s ease-out;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  transition: all 0.4s ease;
+}
+
+.content:hover{
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 45px 0 rgba(31, 38, 135, 0.35);
+}
+
+/* Buttons */
+#no, #yes{
+  position: absolute;
+  display: inline-block;
+  top: 40vh;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font: 600 16px/1.2 "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing: .3px;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,.7);
+  background: var(--glass);
+  backdrop-filter: var(--backdrop);
+  -webkit-backdrop-filter: var(--backdrop);
+  box-shadow: var(--shadow);
+  color: var(--text-strong);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: slideUp 0.6s ease-out forwards;
+  touch-action: none;
+}
+
+#no{ 
+  left: 32%; 
+  background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent-4) 100%);
+  animation-delay: 0.1s;
+}
+
+#yes{ 
+  left: 64%; 
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-4) 100%);
+  animation-delay: 0.2s;
+}
+
+#no:hover, #yes:hover{
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: var(--shadow-lg), var(--glow);
+  border-color: rgba(255,255,255,1);
+}
+
+#no:active, #yes:active{
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow);
+}
+
+#no:focus-visible, #yes:focus-visible{
+  outline: none;
+  border-color: var(--accent-1);
+  box-shadow: var(--shadow-lg), 0 0 0 6px rgba(109,213,255,.3);
+}
+
+/* neutralize Bootstrap theme colors for these buttons */
+#no.btn, #yes.btn{
+  background-image: none;
+}
+
+/* Background */
+#bg{
+  position: fixed;
+  inset: 0;
+  opacity: 0.95;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-position: 50%;
+  filter: blur(6px) saturate(105%);
+}
+
+/* Headings */
+header h2{
+  font-family: "Pacifico", "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: clamp(42px, 8vw, 80px);
+  text-align: center;
+  margin: 0 0 16px;
+  background: linear-gradient(90deg, var(--accent-1) 0%, var(--accent-2) 40%, var(--accent-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+  animation: fadeInDown 1s ease-out;
+  text-shadow: 0 2px 20px rgba(109,213,255,0.15);
+}
+
+header h4{
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: var(--text-soft);
+  margin: 0 0 16px;
+  line-height: 1.6;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* Yes/No page text */
+#title{
+  font-family: "Pacifico", "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 600;
+  text-align: center;
+  color: var(--text-strong);
+  margin: 0 0 12px;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#desc{
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--text-soft);
+  margin: 0;
+  line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* SweetAlert2 (glass + cute) */
+.swal2-popup{
+  border-radius: calc(var(--radius) + 4px) !important;
+  background: var(--glass) !important;
+  backdrop-filter: var(--backdrop) !important;
+  -webkit-backdrop-filter: var(--backdrop) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border: 2px solid rgba(255,255,255,.8) !important;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.swal2-title{
+  color: var(--text-strong) !important;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+
+.swal2-content{
+  color: var(--text-soft) !important;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.5 !important;
+}
+
+.swal2-styled.swal2-confirm{
+  border-radius: 999px !important;
+  padding: 12px 32px !important;
+  background: linear-gradient(135deg, var(--accent-5) 0%, var(--accent-6) 100%) !important;
+  color: white !important;
+  border: 2px solid rgba(255,255,255,.7) !important;
+  box-shadow: var(--shadow) !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swal2-styled.swal2-confirm:hover{
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.swal2-input{
+  border-radius: 16px !important;
+  border: 2px solid rgba(109,213,255,.35) !important;
+  background: rgba(255,255,255,.9) !important;
+  padding: 12px 16px !important;
+  font-size: 16px !important;
+  transition: all 0.3s ease !important;
+  color: var(--text-strong) !important;
+}
+
+.swal2-input:focus{
+  border-color: var(--accent-1) !important;
+  box-shadow: 0 0 0 3px rgba(109,213,255,.2) !important;
+  background: rgba(255,255,255,1) !important;
+}
+
+/* Accessibility & misc */
+.no-js-banner{
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent-3), var(--accent-2));
+  color: var(--text-strong);
+  z-index: 10000000;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+  .content{ 
+    padding: calc(var(--space) * 1.5) var(--space); 
+    margin: 30px auto 0;
+    max-width: 90vw;
+  }
+
+  #no, #yes{
+    font-size: 14px;
+    padding: 10px 16px;
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  #no:hover, #yes:hover{
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  header h2{
+    font-size: clamp(24px, 7vw, 42px);
+    margin-bottom: 12px;
+  }
+
+  header h4{
+    font-size: 14px;
+    margin: 0 0 8px;
+  }
+  
+  #title{
+    font-size: clamp(18px, 5vw, 28px) !important;
+    margin-bottom: 8px !important;
+  }
+  
+  #desc{
+    font-size: 14px !important;
+  }
+  
+  .swal2-popup{
+    width: 90vw !important;
+    max-width: 500px !important;
+  }
+  
+  .swal2-title{
+    font-size: 20px !important;
+  }
+  
+  .swal2-content{
+    font-size: 14px !important;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px){
+  .content{
+    padding: calc(var(--space) * 2) calc(var(--space) * 1.5);
+    margin: 50px auto 0;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px){
+  .content{
+    padding: calc(var(--space) * 3);
+    margin: 60px auto 0;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  *{ 
+    animation: none !important; 
+    transition: none !important; 
+  }
+}
