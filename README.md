@@ -29,6 +29,7 @@ Built using pure front-end technologies — no backend, no database.
 
 ## 📁 Project Structure
 
+```
 cute-clean-confession/
 ├── index.html
 ├── config.js
@@ -45,6 +46,7 @@ cute-clean-confession/
     ├── tick.mp3
     ├── duck.mp3
     └── swish.mp3
+```
 
 ---
 
@@ -52,7 +54,9 @@ cute-clean-confession/
 
 1. Clone the repository
 
+```
 git clone https://github.com/vush-man/cute-clean-confession.git
+```
 
 2. Open index.html in your browser
 (No server required)
